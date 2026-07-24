@@ -2,13 +2,18 @@ export const experiences = [
   {
     id: "exp-1",
     company: "PT Kilang Pertamina Internasional RU IV",
-    role: "IT / Network Infrastructure Intern",
+    role: "Information Technology Intern",
     type: "Internship",
     startDate: "Apr 2025",
     endDate: "May 2025",
     location: "Cilacap, Indonesia",
     description: "Analyzed secure network infrastructure, studied topology and communication workflows, and assisted in CCTV/radio system operations in a major industrial refinery.",
     icon: "briefcase",
+    certificate: {
+      image: "src/assets/projects/certif/sertifpertamina.png",
+      url: "REPLACE_WITH_CERTIFICATE_URL",
+      title: "Sertifikat Magang Pertamina",
+    },
   },
   {
     id: "exp-2",
@@ -20,6 +25,11 @@ export const experiences = [
     location: "Yogyakarta, Indonesia",
     description: "Redesigned the official government portal in Figma and developed responsive interfaces using Nuxt.js and Tailwind CSS for enhanced usability.",
     icon: "globe",
+    certificate: {
+      image: "src/assets/projects/certif/sertifkominfo.png",
+      url: "REPLACE_WITH_CERTIFICATE_URL",
+      title: "Sertifikat Magang Diskominfo",
+    },
   },
   {
     id: "exp-3",
@@ -31,5 +41,10 @@ export const experiences = [
     location: "Remote",
     description: "Specialized in Mobile Development, designing high-fidelity Figma mockups and building functional Android app components with Kotlin and Android Studio.",
     icon: "compass",
-  }
+    certificate: {
+      image: "src/assets/projects/certif/sertifbangkit.png",
+      url: "REPLACE_WITH_CERTIFICATE_URL",
+      title: "Bangkit Academy Certificate",
+    },
+  },
 ];

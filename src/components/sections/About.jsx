@@ -55,7 +55,7 @@ export default function About() {
                   <div key={stat.label}>
                     <div
                       className="text-2xl font-bold"
-                      style={{ color: "var(--accent-primary)" }}
+                      style={{ color: "var(white)" }}
                     >
                       {stat.value}
                     </div>

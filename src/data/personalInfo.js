@@ -1,7 +1,7 @@
 export const personalInfo = {
-  name: "alief   poetra",
+  name: "alief poetra",
   firstName: "Alif",
-  title: "UI/UX Designer & Front End Developer",
+  title: "Product Design (UI/UX) & FrontEnd Developer. ",
   taglines: [
     "Designing user-centric digital interfaces.",
     "Developing responsive Nuxt.js & React apps.",
@@ -17,11 +17,10 @@ I value empathy, attention to detail, collaboration, and continuous learning. I 
   email: "alifputrah@gmail.com",
   phone: "+6289-6037-59192",
   availability: "Available for Work",
-  resumeUrl: `${import.meta.env.BASE_URL}Alif_Putra_Hermawan_CV.pdf`,
-  driveCvUrl: "https://drive.google.com/file/d/1-hJpItfYAQ-4asjAX8I0ewng-gU9u0XM/view?usp=sharing",
+  resumeUrl: "/assets/Alif_Putra_Hermawan_CV.pdf",
   social: {
     linkedin: "https://linkedin.com/in/alieftraa/",
-    github: "https://github.com/alieftraa", // aligned with linkedin name
+    github: "https://github.com/alieftraa",
     instagram: "https://instagram.com/alieftraa",
     email: "mailto:alifputrah@gmail.com",
   },

@@ -40,7 +40,7 @@ export default function Contact() {
           <p className="contact-subtitle">
             Currently open to new opportunities and interesting collaborations.
           </p>
-
+<br></br><br></br>
           <div className="my-10 md:my-14">
             <a
               href={`mailto:${personalInfo.email}`}
@@ -50,6 +50,7 @@ export default function Contact() {
             </a>
           </div>
         </ScrollReveal>
+        <br></br><br></br><br></br>
 
         <ScrollReveal delay={0.15}>
           <div className="contact-social-grid">
