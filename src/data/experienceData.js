@@ -1,0 +1,35 @@
+export const experiences = [
+  {
+    id: "exp-1",
+    company: "PT Kilang Pertamina Internasional RU IV",
+    role: "IT / Network Infrastructure Intern",
+    type: "Internship",
+    startDate: "Apr 2025",
+    endDate: "May 2025",
+    location: "Cilacap, Indonesia",
+    description: "Analyzed secure network infrastructure, studied topology and communication workflows, and assisted in CCTV/radio system operations in a major industrial refinery.",
+    icon: "briefcase",
+  },
+  {
+    id: "exp-2",
+    company: "Dinas Komunikasi dan Informatika DIY",
+    role: "UI/UX Designer & Front End Web Developer Intern",
+    type: "Internship",
+    startDate: "Jan 2025",
+    endDate: "Mar 2025",
+    location: "Yogyakarta, Indonesia",
+    description: "Redesigned the official government portal in Figma and developed responsive interfaces using Nuxt.js and Tailwind CSS for enhanced usability.",
+    icon: "globe",
+  },
+  {
+    id: "exp-3",
+    company: "Bangkit Academy (by Google, Gojek, Tokopedia, Traveloka)",
+    role: "Mobile Development - Independent Study",
+    type: "Independent Study",
+    startDate: "Feb 2024",
+    endDate: "Jul 2024",
+    location: "Remote",
+    description: "Specialized in Mobile Development, designing high-fidelity Figma mockups and building functional Android app components with Kotlin and Android Studio.",
+    icon: "compass",
+  }
+];
