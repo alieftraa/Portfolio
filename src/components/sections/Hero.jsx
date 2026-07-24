@@ -55,7 +55,9 @@ export default function Hero() {
           </button>
           <a
             href={personalInfo.resumeUrl}
-            download
+            download="Alif_Putra_Hermawan_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="glass-btn glass-btn-secondary"
           >
             <Download size={16} />

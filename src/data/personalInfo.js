@@ -17,7 +17,8 @@ I value empathy, attention to detail, collaboration, and continuous learning. I 
   email: "alifputrah@gmail.com",
   phone: "+6289-6037-59192",
   availability: "Available for Work",
-  resumeUrl: "/assets/Alif_Putra_Hermawan_CV.pdf",
+  resumeUrl: `${import.meta.env.BASE_URL}Alif_Putra_Hermawan_CV.pdf`,
+  driveCvUrl: "https://drive.google.com/file/d/1-hJpItfYAQ-4asjAX8I0ewng-gU9u0XM/view?usp=sharing",
   social: {
     linkedin: "https://linkedin.com/in/alieftraa/",
     github: "https://github.com/alieftraa", // aligned with linkedin name
