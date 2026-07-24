@@ -1,12 +1,54 @@
-import { Code2, Layers, Paintbrush, Globe, FileCode, Palette } from "lucide-react";
+import { Code2 } from "lucide-react";
 import ScrollReveal from "../ui/ScrollReveal";
 import { skillCards } from "../../data/skillsData";
 
 /* ── SVG icon components for technology logos ── */
 
+function FigmaIcon({ size = 24 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 2H8.5C6.567 2 5 3.567 5 5.5C5 7.433 6.567 9 8.5 9H12V2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 2H15.5C17.433 2 19 3.567 19 5.5C19 7.433 17.433 9 15.5 9H12V2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 9H15.5C17.433 9 19 10.567 19 12.5C19 14.433 17.433 16 15.5 16H12V9Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 9H8.5C6.567 9 5 10.567 5 12.5C5 14.433 6.567 16 8.5 16H12V9Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8.5 16C6.567 16 5 17.567 5 19.5C5 21.433 6.567 23 8.5 23C10.433 23 12 21.433 12 19.5V16H8.5Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function NuxtIcon({ size = 24 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M3.437 18.24L10.09 6.572a1.2 1.2 0 0 1 2.08 0l1.86 3.253-3.72 6.503H5.3"
         stroke="currentColor"
@@ -27,7 +69,7 @@ function NuxtIcon({ size = 24 }) {
 
 function ReactIcon({ size = 24 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="2" fill="currentColor" />
       <ellipse
         cx="12"
@@ -61,7 +103,7 @@ function ReactIcon({ size = 24 }) {
 
 function VueIcon({ size = 24 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M2 3h4l6 10.5L18 3h4L12 21 2 3z"
         stroke="currentColor"
@@ -80,7 +122,7 @@ function VueIcon({ size = 24 }) {
 
 function TailwindIcon({ size = 24 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M12 6C9.33 6 7.67 7.33 7 10c1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C13.37 10.84 14.54 12 17 12c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C15.63 7.16 14.46 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C8.37 16.84 9.54 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C10.63 13.16 9.46 12 7 12z"
         stroke="currentColor"
@@ -94,7 +136,7 @@ function TailwindIcon({ size = 24 }) {
 
 function HtmlIcon({ size = 24 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M4 3l1.5 16L12 21l6.5-2L20 3H4z"
         stroke="currentColor"
@@ -114,7 +156,7 @@ function HtmlIcon({ size = 24 }) {
 
 function CssIcon({ size = 24 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M4 3l1.5 16L12 21l6.5-2L20 3H4z"
         stroke="currentColor"
@@ -133,6 +175,7 @@ function CssIcon({ size = 24 }) {
 }
 
 const iconMap = {
+  figma: FigmaIcon,
   nuxt: NuxtIcon,
   react: ReactIcon,
   vue: VueIcon,
@@ -151,22 +194,26 @@ function FeaturedCard({ skill }) {
         <div className="bento-icon-wrap bento-icon-featured">
           <Icon size={28} />
         </div>
-        <span className="bento-level-badge bento-level-featured">
-          {skill.level}
-        </span>
+        {skill.level && (
+          <span className="bento-level-badge bento-level-featured">
+            {skill.level}
+          </span>
+        )}
       </div>
 
       <h3 className="bento-card-title bento-title-featured">{skill.name}</h3>
 
       <p className="bento-card-desc bento-desc-featured">{skill.description}</p>
 
-      <div className="bento-tags">
-        {skill.tags.map((tag) => (
-          <span key={tag} className="bento-tag bento-tag-featured">
-            {tag}
-          </span>
-        ))}
-      </div>
+      {skill.tags && (
+        <div className="bento-tags">
+          {skill.tags.map((tag) => (
+            <span key={tag} className="bento-tag bento-tag-featured">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -179,9 +226,11 @@ function SecondaryCard({ skill }) {
         <div className="bento-icon-wrap bento-icon-secondary">
           <Icon size={24} />
         </div>
-        <span className="bento-level-badge bento-level-secondary">
-          {skill.level}
-        </span>
+        {skill.level && (
+          <span className="bento-level-badge bento-level-secondary">
+            {skill.level}
+          </span>
+        )}
       </div>
 
       <h3 className="bento-card-title bento-title-secondary">{skill.name}</h3>
@@ -209,14 +258,26 @@ function CompactCard({ skill }) {
         <div className="bento-icon-wrap bento-icon-compact">
           <Icon size={20} />
         </div>
-        <span className="bento-level-badge bento-level-compact">
-          {skill.level}
-        </span>
+        {skill.level && (
+          <span className="bento-level-badge bento-level-compact">
+            {skill.level}
+          </span>
+        )}
       </div>
 
       <h3 className="bento-card-title bento-title-compact">{skill.name}</h3>
 
       <p className="bento-card-desc bento-desc-compact">{skill.description}</p>
+
+      {skill.tags && (
+        <div className="bento-tags" style={{ marginTop: "12px" }}>
+          {skill.tags.map((tag) => (
+            <span key={tag} className="bento-tag bento-tag-secondary">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -249,11 +310,10 @@ export default function Skills() {
           <div className="bento-header">
             <div className="bento-header-left">
               <span className="bento-eyebrow"></span>
-              <h2 className="bento-section-title">Skills</h2>
+              <h2 className="bento-section-title">Tech Stack</h2>
             </div>
             <p className="bento-header-desc">
-              {/* A curated stack of technologies and methodologies honed through
-              building high-performance digital products. */}
+              The tools and technologies I use to turn ideas into experiences.
             </p>
           </div>
         </ScrollReveal>

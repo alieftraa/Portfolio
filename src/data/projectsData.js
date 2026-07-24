@@ -37,9 +37,9 @@ export const projects = [
     iconName: "smartphone",
     image: bengkelCover,
     gallery: [
-      { src: bengkelCover, caption: "User-Centered Design process overview" },
-      { src: bengkelGallery1, caption: "User flow and wireframe documentation" },
-      { src: bengkelGallery2, caption: "High-fidelity mobile app screens" },
+      { src: bengkelCover, caption: "" },
+      { src: bengkelGallery1, caption: "" },
+      { src: bengkelGallery2, caption: "" },
     ],
     features: [
       "Complete UCD (User-Centered Design) methodology implementation",
@@ -70,9 +70,9 @@ export const projects = [
     iconName: "globe",
     image: diskominfoCover,
     gallery: [
-      { src: diskominfoCover, caption: "Homepage redesign with modern hero section" },
-      { src: diskominfoGallery1, caption: "Services page with organized card layout" },
-      { src: diskominfoGallery2, caption: "Mobile responsive version" },
+      { src: diskominfoCover, caption: "" },
+      { src: diskominfoGallery1, caption: "" },
+      { src: diskominfoGallery2, caption: "" },
     ],
     features: [
       "Modern, accessible UI design following WCAG guidelines",

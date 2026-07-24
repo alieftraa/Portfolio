@@ -36,11 +36,11 @@ export default function Contact() {
       <div className="container-custom">
         <ScrollReveal>
           <span className="contact-eyebrow">CONTACT</span>
-          <h2 className="contact-title">Let's connect.</h2>
+          <h2 className="contact-title">Let's Connect.</h2>
           <p className="contact-subtitle">
             Currently open to new opportunities and interesting collaborations.
           </p>
-<br></br><br></br>
+          <br></br><br></br>
           <div className="my-10 md:my-14">
             <a
               href={`mailto:${personalInfo.email}`}

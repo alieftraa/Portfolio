@@ -12,6 +12,12 @@ export default function Projects() {
           <div className="projects-header">
             <span className="projects-eyebrow"></span>
             <h2 className="projects-title">Projects</h2>
+            <p
+              className="text-sm md:text-base font-normal max-w-sm"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Selected works that bring ideas into meaningful experiences.
+            </p>
           </div>
         </ScrollReveal>
 

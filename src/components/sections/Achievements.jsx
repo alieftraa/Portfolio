@@ -153,6 +153,7 @@ function AllCertificatesModal({ isOpen, onClose }) {
               <div>
                 <span className="certificates-modal-eyebrow">All certificates</span>
                 <h2 id="all-certificates-title">{certifications.length} Certificates</h2>
+
               </div>
               <button
                 ref={closeButtonRef}
@@ -192,6 +193,12 @@ export default function Achievements() {
             <ScrollReveal direction="left" className="certifications-sidebar">
               <div>
                 <h2 className="certifications-title">Certifications</h2>
+                <p
+                  className="text-sm md:text-base font-normal max-w-sm"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  Milestones of continuous learning and growth.
+                </p>
                 <button
                   type="button"
                   className="certificates-view-all"

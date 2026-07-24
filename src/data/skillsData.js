@@ -3,42 +3,42 @@
 
 export const skillCards = [
   {
+    id: "figma",
+    name: "Figma",
+    type: "featured",
+    level: "Primary Tool",
+    description:
+      "Designing user-centered interfaces, building interactive prototypes, and translating ideas into intuitive digital experiences.",
+    tags: ["UI/UX", "Prototyping", "Wireframing", "Design Systems"],
+    icon: "figma",
+  },
+  {
     id: "nuxtjs",
     name: "Nuxt.js",
-    type: "featured",
-    level: "Expert",
-    description:
-      "Building performant, SEO-friendly web applications with server-side rendering and a powerful modular architecture.",
-    tags: ["Vue.js", "SSR", "Nitro"],
-    icon: "nuxt",
-  },
-  {
-    id: "react",
-    name: "React",
     type: "secondary",
-    level: "Advanced",
     description:
-      "Creating dynamic, component-driven user interfaces with modern hooks and state management patterns.",
-    tags: ["Hooks", "JSX"],
-    icon: "react",
-  },
-  {
-    id: "vuejs",
-    name: "Vue.js",
-    type: "compact",
-    level: "Advanced",
-    description:
-      "Building reactive single-page applications with the progressive JavaScript framework.",
-    icon: "vue",
+      "Turning interface designs into responsive and functional web experiences.",
+    tags: ["Vue.js", "SSR", "Responsive Web"],
+    icon: "nuxt",
   },
   {
     id: "tailwind",
     name: "Tailwind CSS",
     type: "compact",
-    level: "Proficient",
     description:
-      "Crafting responsive, utility-first designs with rapid prototyping and consistent styling.",
+      "Building responsive interfaces efficiently with a consistent and scalable styling approach.",
+    tags: ["Responsive Design", "Utility-First"],
     icon: "tailwind",
+  },
+  {
+    id: "react",
+    name: "React",
+    type: "compact",
+    level: "Basic",
+    description:
+      "Basic experience in building component-based user interfaces.",
+    tags: ["Components", "JSX"],
+    icon: "react",
   },
   {
     id: "html",
