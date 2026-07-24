@@ -1,3 +1,7 @@
+import certpertamina from "../assets/projects/certif/sertifpertamina.png";
+import certkominfo from "../assets/projects/certif/sertifkominfo.png";
+import certbangkit from "../assets/projects/certif/sertifbangkit.png";
+
 export const experiences = [
   {
     id: "exp-1",
@@ -10,7 +14,7 @@ export const experiences = [
     description: "Analyzed secure network infrastructure, studied topology and communication workflows, and assisted in CCTV/radio system operations in a major industrial refinery.",
     icon: "briefcase",
     certificate: {
-      image: "src/assets/projects/certif/sertifpertamina.png",
+      image: certpertamina,
       url: "REPLACE_WITH_CERTIFICATE_URL",
       title: "Sertifikat Magang Pertamina",
     },
@@ -26,7 +30,7 @@ export const experiences = [
     description: "Redesigned the official government portal in Figma and developed responsive interfaces using Nuxt.js and Tailwind CSS for enhanced usability.",
     icon: "globe",
     certificate: {
-      image: "src/assets/projects/certif/sertifkominfo.png",
+      image: certkominfo,
       url: "REPLACE_WITH_CERTIFICATE_URL",
       title: "Sertifikat Magang Diskominfo",
     },
@@ -42,7 +46,7 @@ export const experiences = [
     description: "Specialized in Mobile Development, designing high-fidelity Figma mockups and building functional Android app components with Kotlin and Android Studio.",
     icon: "compass",
     certificate: {
-      image: "src/assets/projects/certif/sertifbangkit.png",
+      image: certbangkit,
       url: "REPLACE_WITH_CERTIFICATE_URL",
       title: "Bangkit Academy Certificate",
     },

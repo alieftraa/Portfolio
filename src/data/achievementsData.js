@@ -4,6 +4,15 @@
 // Import actual certificate images that exist
 import certFundamental from "../assets/projects/certif/fundamantel.png";
 import certML from "../assets/projects/certif/mlandro.png";
+import git from "../assets/projects/certif/dasargit.png";
+import logpro from "../assets/projects/certif/logpro.png";
+import dasarai from "../assets/projects/certif/dasarai.png";
+import solid from "../assets/projects/certif/solid.png";
+import andropemula from "../assets/projects/certif/andropemula.png";
+import kotlin from "../assets/projects/certif/kotlin.png";
+import software from "../assets/projects/certif/software.png";
+import cyber from "../assets/projects/certif/cyber.png";
+
 
 export const certifications = [
   {
@@ -21,7 +30,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/mlandro.png",
+    thumbnail: certML,
     verifyUrl: "https://www.dicoding.com/certificates/2VX3RYRJJZYQ",
   },
   {
@@ -30,7 +39,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/dasargit.png",
+    thumbnail: git,
     verifyUrl: "https://www.dicoding.com/certificates/98XWL4E0WZM3",
   },
   {
@@ -39,7 +48,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/logpro.png",
+    thumbnail: logpro,
     verifyUrl: "https://www.dicoding.com/certificates/RVZKRKWWMPD5",
   },
   {
@@ -48,7 +57,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/dasarai.png",
+    thumbnail: dasarai,
     verifyUrl: "https://www.dicoding.com/certificates/N9ZOMD5N8PG5",
   },
   {
@@ -57,7 +66,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/solid.png",
+    thumbnail: solid,
     verifyUrl: "https://www.dicoding.com/certificates/ERZR19EYQZYV",
   },
   {
@@ -66,7 +75,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/andropemula.png",
+    thumbnail: andropemula,
     verifyUrl: "https://www.dicoding.com/certificates/1OP8N32RQXQK",
   },
   {
@@ -75,7 +84,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/kotlin.png",
+    thumbnail: kotlin,
     verifyUrl: "https://www.dicoding.com/certificates/98XW21V7WPM3",
   },
   {
@@ -84,7 +93,7 @@ export const certifications = [
     issuer: "Dicoding Indonesia",
     date: "2024",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/software.png",
+    thumbnail: software,
     verifyUrl: "https://www.dicoding.com/certificates/0LZ02E1QRX65",
   },
   {
@@ -93,7 +102,7 @@ export const certifications = [
     issuer: "Cisco Networking Academy",
     date: "2023",
     type: "certification",
-    thumbnail: "src/assets/projects/certif/cyber.png",
+    thumbnail: cyber,
     verifyUrl: "#",
   },
 ];
