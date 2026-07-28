@@ -1404,7 +1404,7 @@ a:hover {
 
 /* Hero */
 .detail-hero {
-  padding-top: var(--space-6);
+  padding-top: var(--space-9);
   padding-bottom: var(--space-6);
 }
 
@@ -1455,7 +1455,7 @@ a:hover {
   margin: 0 auto;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  /* box-shadow: 0 16px 64px rgba(0, 0, 0, 0.2); */
+  cursor: zoom-in;
 }
 
 .detail-hero-image {
@@ -1463,6 +1463,11 @@ a:hover {
   max-height: 700px;
   object-fit: contain;
   display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.detail-hero-image-wrap:hover .detail-hero-image {
+  transform: scale(1.03);
 }
 
 /* Content Grid */
@@ -1597,8 +1602,8 @@ a:hover {
 
 .detail-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
 }
 
 .detail-gallery-item {
@@ -1607,6 +1612,12 @@ a:hover {
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 16 / 10;
+}
+
+.detail-gallery-item.full-width,
+.detail-gallery-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  aspect-ratio: 2.4 / 1;
 }
 
 .detail-gallery-img {
@@ -1667,7 +1678,7 @@ a:hover {
 .detail-lightbox {
   position: fixed;
   inset: 0;
-  z-index: var(--z-modal);
+  z-index: 99999;
   background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(10px);
   display: flex;

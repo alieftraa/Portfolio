@@ -1,6 +1,11 @@
 import diskominfoCover from "../assets/projects/diskominfo.png";
 import diskominfoGallery1 from "../assets/projects/dis2.png";
 import diskominfoGallery2 from "../assets/projects/dis3.png";
+import diskominfoGallery3 from "../assets/projects/dis4.png";
+import diskominfoGallery4 from "../assets/projects/dis5.png";
+import diskominfoGallery5 from "../assets/projects/dis6.png";
+import diskominfoGallery6 from "../assets/projects/dis7.png";
+import diskominfoGallery7 from "../assets/projects/dis8.png";
 
 import bengkelCover from "../assets/projects/motorku.png";
 import bengkelGallery1 from "../assets/projects/motorku2.png";
@@ -71,9 +76,13 @@ export const projects = [
     iconName: "globe",
     image: diskominfoCover,
     gallery: [
-      { src: diskominfoCover, caption: "" },
       { src: diskominfoGallery1, caption: "" },
       { src: diskominfoGallery2, caption: "" },
+      { src: diskominfoGallery3, caption: "" },
+      { src: diskominfoGallery4, caption: "" },
+      { src: diskominfoGallery5, caption: "" },
+      { src: diskominfoGallery6, caption: "" },
+      { src: diskominfoGallery7, caption: "", fullWidth: true },
     ],
     features: [
       "Modern, accessible UI design following WCAG guidelines",

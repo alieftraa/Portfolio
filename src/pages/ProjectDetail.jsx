@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -223,17 +224,17 @@ function BengkelMotorkuCaseStudy({ project }) {
 
   const personas = [
     {
-      label: "Aditya — College Student",
+      label: "College Student",
       image: `${ASSET}/persona-1.jpg`,
       fallback: "persona-1.png",
     },
     {
-      label: "Budi — Busy Employee",
+      label: "Busy Employee",
       image: `${ASSET}/persona-2.jpg`,
       fallback: "persona-2.png",
     },
     {
-      label: "Pak Dimas — Workshop Owner",
+      label: "Workshop Owner",
       image: `${ASSET}/persona-3.jpg`,
       fallback: "persona-3.png",
     },
@@ -2320,43 +2321,49 @@ function BengkelMotorkuCaseStudy({ project }) {
       </motion.div> */}
 
       {/* ── CASE STUDY IMAGE LIGHTBOX ─── */}
-      <AnimatePresence>
-        {lbOpen && (
-          <motion.div
-            className="detail-lightbox"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={closeLb}
-          >
-            <button
-              className="detail-lightbox-close"
-              onClick={closeLb}
-              aria-label="Close image"
-            >
-              <X size={24} />
-            </button>
-            <motion.img
-              key={lbSrc}
-              src={lbSrc}
-              alt={lbAlt}
-              className="detail-lightbox-img"
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.92 }}
-              transition={{ duration: 0.25 }}
-              onClick={(e) => e.stopPropagation()}
-            />
-            <div
-              className="detail-lightbox-caption"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {lbAlt}
-            </div>
-          </motion.div>
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {lbOpen && (
+              <motion.div
+                className="detail-lightbox"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={closeLb}
+              >
+                <button
+                  className="detail-lightbox-close"
+                  onClick={closeLb}
+                  aria-label="Close image"
+                >
+                  <X size={24} />
+                </button>
+                <motion.img
+                  key={lbSrc}
+                  src={lbSrc}
+                  alt={lbAlt}
+                  className="detail-lightbox-img"
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.92 }}
+                  transition={{ duration: 0.25 }}
+                  onClick={(e) => e.stopPropagation()}
+                />
+                {lbAlt && (
+                  <div
+                    className="detail-lightbox-caption"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {lbAlt}
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 }
@@ -2371,6 +2378,7 @@ export default function ProjectDetail() {
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxSingle, setLightboxSingle] = useState(null);
 
   const project = projects.find((p) => p.slug === slug);
 
@@ -2380,17 +2388,34 @@ export default function ProjectDetail() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [slug]);
 
-  // Lock body scroll when lightbox is open
+  // Lock body scroll and add keyboard controls when lightbox is open
   useEffect(() => {
-    if (lightboxOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    if (!lightboxOpen) return;
+    document.body.style.overflow = "hidden";
+
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setLightboxOpen(false);
+        setLightboxSingle(null);
+      } else if (e.key === "ArrowLeft" && !lightboxSingle) {
+        setLightboxIndex((prev) => {
+          const total = project?.gallery?.length || 1;
+          return (prev - 1 + total) % total;
+        });
+      } else if (e.key === "ArrowRight" && !lightboxSingle) {
+        setLightboxIndex((prev) => {
+          const total = project?.gallery?.length || 1;
+          return (prev + 1) % total;
+        });
+      }
+    };
+
+    document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
     };
-  }, [lightboxOpen]);
+  }, [lightboxOpen, lightboxSingle, project]);
 
   if (!project) {
     return (
@@ -2405,7 +2430,13 @@ export default function ProjectDetail() {
   }
 
   const openLightbox = (index) => {
+    setLightboxSingle(null);
     setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const openSingleLightbox = (src, caption = "") => {
+    setLightboxSingle({ src, caption });
     setLightboxOpen(true);
   };
 
@@ -2433,24 +2464,7 @@ export default function ProjectDetail() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <span className="detail-eyebrow">{project.category.toUpperCase()}</span>
             <h1 className="detail-title">{project.title}</h1>
-
-            {/* Meta row */}
-            <div className="detail-meta">
-              <div className="detail-meta-item">
-                <User size={14} />
-                <span>{project.role}</span>
-              </div>
-              <div className="detail-meta-item">
-                <Calendar size={14} />
-                <span>{project.date}</span>
-              </div>
-              <div className="detail-meta-item">
-                <Clock size={14} />
-                <span>{project.duration}</span>
-              </div>
-            </div>
           </motion.div>
 
           {/* Hero Image */}
@@ -2459,6 +2473,10 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
+            onClick={() => openSingleLightbox(project.image, project.title)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && openSingleLightbox(project.image, project.title)}
           >
             <img
               src={project.image}
@@ -2574,7 +2592,7 @@ export default function ProjectDetail() {
                 {project.gallery.map((item, i) => (
                   <div
                     key={i}
-                    className="detail-gallery-item"
+                    className={`detail-gallery-item ${item.fullWidth ? "full-width" : ""}`}
                     onClick={() => openLightbox(i)}
                     role="button"
                     tabIndex={0}
@@ -2613,67 +2631,82 @@ export default function ProjectDetail() {
       </section>
 
       {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxOpen && (
-          <motion.div
-            className="detail-lightbox"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={() => setLightboxOpen(false)}
-          >
-            <button
-              className="detail-lightbox-close"
-              onClick={() => setLightboxOpen(false)}
-              aria-label="Close lightbox"
-            >
-              <X size={24} />
-            </button>
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {lightboxOpen && (
+              <motion.div
+                className="detail-lightbox"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => {
+                  setLightboxOpen(false);
+                  setLightboxSingle(null);
+                }}
+              >
+                <button
+                  className="detail-lightbox-close"
+                  onClick={() => {
+                    setLightboxOpen(false);
+                    setLightboxSingle(null);
+                  }}
+                  aria-label="Close lightbox"
+                >
+                  <X size={24} />
+                </button>
 
-            <button
-              className="detail-lightbox-nav detail-lightbox-prev"
-              onClick={(e) => {
-                e.stopPropagation();
-                navigateLightbox(-1);
-              }}
-              aria-label="Previous image"
-            >
-              <ChevronLeft size={28} />
-            </button>
+                {!lightboxSingle && project.gallery && project.gallery.length > 1 && (
+                  <>
+                    <button
+                      className="detail-lightbox-nav detail-lightbox-prev"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigateLightbox(-1);
+                      }}
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft size={28} />
+                    </button>
+                    <button
+                      className="detail-lightbox-nav detail-lightbox-next"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigateLightbox(1);
+                      }}
+                      aria-label="Next image"
+                    >
+                      <ChevronRight size={28} />
+                    </button>
+                  </>
+                )}
 
-            <motion.img
-              key={lightboxIndex}
-              src={project.gallery[lightboxIndex].src}
-              alt={project.gallery[lightboxIndex].caption}
-              className="detail-lightbox-img"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              onClick={(e) => e.stopPropagation()}
-            />
+                <motion.img
+                  key={lightboxSingle ? lightboxSingle.src : lightboxIndex}
+                  src={lightboxSingle ? lightboxSingle.src : project.gallery?.[lightboxIndex]?.src}
+                  alt={lightboxSingle ? lightboxSingle.caption : project.gallery?.[lightboxIndex]?.caption}
+                  className="detail-lightbox-img"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={(e) => e.stopPropagation()}
+                />
 
-            <button
-              className="detail-lightbox-nav detail-lightbox-next"
-              onClick={(e) => {
-                e.stopPropagation();
-                navigateLightbox(1);
-              }}
-              aria-label="Next image"
-            >
-              <ChevronRight size={28} />
-            </button>
-
-            <div
-              className="detail-lightbox-caption"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {project.gallery[lightboxIndex].caption}
-            </div>
-          </motion.div>
+                {(lightboxSingle?.caption || project.gallery?.[lightboxIndex]?.caption) && (
+                  <div
+                    className="detail-lightbox-caption"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {lightboxSingle ? lightboxSingle.caption : project.gallery?.[lightboxIndex]?.caption}
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 }
