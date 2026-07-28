@@ -28,6 +28,7 @@ export const projects = [
       "Bengkel Motorku is a thesis project focused on designing a mobile application for motorcycle repair service management. Using User-Centered Design (UCD) methodology and evaluated with SUS (System Usability Scale), the project aims to streamline the process of booking, tracking, and managing motorcycle repair services. The research involved user interviews, persona creation, user journey mapping, wireframing, and iterative prototyping to achieve an optimal user experience.",
     techStack: ["UI/UX Design", "Figma", "User Research", "Prototyping"],
     category: "uiux",
+    prototypeUrl: "https://www.figma.com/proto/PT3jqsMkG4hSpxNlytxHaa/bismillah-habis-ini-dapet-kerja-di-US?node-id=19-3580&t=BZvdgtRLUYkwJWSW-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=19%3A3580&show-proto-sidebar=1",
     liveUrl: "https://www.figma.com/design/PT3jqsMkG4hSpxNlytxHaa/bismillah-habis-ini-dapet-kerja-di-US?node-id=0-1&t=HOPMD8dnzXqsDnFf-1",
     githubUrl: "#",
     featured: true,

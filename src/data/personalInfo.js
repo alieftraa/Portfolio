@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "alif putra.",
   firstName: "Alif",
-  title: "Product Design (UI/UX) & FrontEnd Developer. ",
+  title: "Product Designer & Front End Developer. ",
   taglines: [
     "Designing user-centric digital interfaces.",
     "Developing responsive Nuxt.js & React apps.",
@@ -17,7 +17,7 @@ I value empathy, attention to detail, collaboration, and continuous learning. I 
   email: "alifputrah@gmail.com",
   phone: "+6289-6037-59192",
   availability: "Available for Work",
-  resumeUrl: "/assets/Alif_Putra_Hermawan_CV.pdf",
+  resumeUrl: `${import.meta.env.BASE_URL || "/"}Alif_Putra_Hermawan_CV.pdf`.replace(/\/+/g, "/"),
   social: {
     linkedin: "https://linkedin.com/in/alieftraa/",
     github: "https://github.com/alieftraa",

@@ -1,6 +1,6 @@
 import ScrollReveal from "../ui/ScrollReveal";
 import { personalInfo } from "../../data/personalInfo";
-import heroImg from "../../assets/alief3.png";
+import heroImg from "../../assets/aliefff.png";
 
 export default function About() {
   return (
@@ -98,7 +98,7 @@ export default function About() {
                   src={heroImg}
                   alt="Alif Putra Hermawan"
                   className="w-full h-full object-cover animate-fade-in"
-                  style={{ filter: "grayscale(100%) contrast(1.05)" }}
+                // style={{ filter: "grayscale(100%) contrast(1.05)" }}
                 />
               </div>
             </div>

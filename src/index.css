@@ -927,6 +927,10 @@ a:hover {
   color: #fff;
 }
 
+[data-theme="light"] .bento-icon-featured {
+  color: var(--text-primary);
+}
+
 .bento-icon-secondary {
   width: 44px;
   height: 44px;
@@ -954,6 +958,12 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+[data-theme="light"] .bento-level-featured {
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+}
+
 .bento-level-secondary {
   background: var(--glass-bg);
   color: var(--text-secondary);
@@ -966,7 +976,7 @@ a:hover {
   border: 1px solid var(--glass-border);
 }
 
-/* ── Featured Card (dark) ── */
+/* ── Featured Card ── */
 .bento-featured {
   background: #1C1C1E;
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -974,12 +984,18 @@ a:hover {
 }
 
 [data-theme="light"] .bento-featured {
-  background: #1C1C1E;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .bento-featured:hover {
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .bento-featured:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .bento-title-featured {
@@ -990,12 +1006,20 @@ a:hover {
   letter-spacing: -0.02em;
 }
 
+[data-theme="light"] .bento-title-featured {
+  color: var(--text-primary);
+}
+
 .bento-desc-featured {
   font-size: 0.9375rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: var(--space-5);
   flex: 1;
+}
+
+[data-theme="light"] .bento-desc-featured {
+  color: var(--text-secondary);
 }
 
 /* ── Secondary Card ── */
@@ -1078,9 +1102,20 @@ a:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
+[data-theme="light"] .bento-tag-featured {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+}
+
 .bento-tag-featured:hover {
   background: rgba(255, 255, 255, 0.14);
   color: #fff;
+}
+
+[data-theme="light"] .bento-tag-featured:hover {
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary);
 }
 
 .bento-tag-secondary {
@@ -1335,21 +1370,16 @@ a:hover {
    ============================================ */
 
 .detail-topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: var(--z-sticky);
   padding: var(--space-4) 0;
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-bottom: none;
-  pointer-events: none;
 }
 
 .detail-home-btn {
-  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1374,7 +1404,7 @@ a:hover {
 
 /* Hero */
 .detail-hero {
-  padding-top: calc(75px + var(--space-5));
+  padding-top: var(--space-6);
   padding-bottom: var(--space-6);
 }
 

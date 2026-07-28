@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Home,
@@ -35,7 +36,7 @@ const navLabels = {
   contact: "Contact",
 };
 
-export default function Navbar() {
+export default function Navbar({ homeOnly = false }) {
   const activeSection = useScrollSpy();
   const { theme, toggleTheme } = useTheme();
   const [isHovered, setIsHovered] = useState(false);
@@ -76,6 +77,8 @@ export default function Navbar() {
 
   const isExpanded = !hasScrolled || isHovered || isOpen;
 
+  const expandedWidth = homeOnly ? "64px" : "min(92vw, 450px)";
+
   return (
     <header className="fixed top-6 left-0 right-0 z-[200] flex justify-center pointer-events-none">
       <motion.div
@@ -86,7 +89,7 @@ export default function Navbar() {
           if (hasScrolled) setIsOpen(!isOpen);
         }}
         animate={{
-          width: isExpanded ? "min(92vw, 450px)" : "48px",
+          width: isExpanded ? expandedWidth : "48px",
           height: "44px",
         }}
         transition={{
@@ -124,7 +127,30 @@ export default function Navbar() {
             >
               <Menu size={18} strokeWidth={2} />
             </motion.div>
+          ) : homeOnly ? (
+            /* ── homeOnly expanded: single Home icon as a Link ── */
+            <motion.div
+              key="expanded-menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center px-3 w-full justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Link
+                to="/"
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-colors cursor-pointer border-none bg-transparent group relative"
+                style={{
+                  color: "var(--text-tertiary)",
+                }}
+                title={navLabels.home}
+              >
+                <Home size={17} strokeWidth={1.6} />
+              </Link>
+            </motion.div>
           ) : (
+            /* ── Full expanded menu: all section icons + theme toggle ── */
             <motion.div
               key="expanded-menu"
               initial={{ opacity: 0 }}
