@@ -161,7 +161,7 @@ function CaseStudyImage({ src, alt, fallbackText, minHeight = 280, style = {}, o
             opacity: 0.5,
           }}
         >
-          Place image in public/bengkel-motorku/
+
         </span>
       </div>
     );
